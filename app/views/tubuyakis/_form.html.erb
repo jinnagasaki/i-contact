@@ -1,0 +1,29 @@
+<p>_form.html.erb</p>
+
+<%= form_with(model: tubuyaki, local: true) do |form| %>
+  <% if tubuyaki.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tubuyaki.errors.count, "error") %> prohibited this tubuyaki from being saved:</h2>
+
+      <ul>
+      <% tubuyaki.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, id: :tubuyaki_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content, id: :tubuyaki_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

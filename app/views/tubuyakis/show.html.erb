@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @tubuyaki.user_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @tubuyaki.content %>
+</p>
+
+<%= link_to 'Edit', edit_tubuyaki_path(@tubuyaki) %> |
+<%= link_to 'Back', tubuyakis_path %>

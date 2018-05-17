@@ -1,0 +1,59 @@
+<p>users/_header.html.erb</p>
+<div id="user-header">
+	<div class="user-info">
+	    <% if notice %>
+	    <div class="alert alert-info">
+	    	<%= notice %>
+	    </div>
+	    <% end %>
+
+		<h1 class="text-center">
+			<%= render_user_screen_name(@user) %> @ <% @user.name %>
+		</h1>
+		<div class="bio">
+			<%= @user.bio %>
+		</div>
+	</div>
+
+<div class="container">
+<div class="row">
+ <div class="col-lg-3">
+  <%= link_to user_path(@user), class:"btn btn-secondary col-lg-12" do %>
+		<div>Tweet</div>
+		<div><%= @user.tubuyakis.count %></div>
+  <% end %>
+ </div>
+ <div class="col-lg-3">
+  <%= link_to follows_user_path(@user), class:"btn btn-secondary col-lg-12" do %>
+			<div>
+				Follow
+			</div>
+			<div>
+				<%= @user.inverse_followers.count %>
+			</div>
+			<% end %>
+ </div>
+ <div class="col-lg-3">
+    <%= link_to followers_user_path(@user), class:"btn btn-secondary col-lg-12" do %>
+			<div>
+				Follower
+			</div>
+			<div>
+				<%= @user.followers.count %>
+			</div>
+			<% end %>
+ </div>
+ <div class="col-lg-3">
+    <%= link_to favorites_user_path(@user), class:"btn btn-secondary col-lg-12" do %>
+			<div>
+				Like
+			</div>
+			<div>
+				<%= @user.favorites.count %>
+			</div>
+			<% end %>
+ </div>
+
+</div></div>
+
+</div>

@@ -1,0 +1,22 @@
+<div id="tweets-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 my-5">
+        <%= render partial: "panel" %>
+      </div><!-- col-xs-4 left-content -->
+
+      <div class="col-lg-8 my-5">
+      <%if notice %>
+      <div class="alert alert-info"><%= notice %></div>
+      <% end %>
+        	<div class="btn-group mb-3">
+        		<%= link_to "All-Tweets", tubuyakis_path, class: "btn btn-outline-primary" %>
+        		<%= link_to "Like-User-Tweets", timeline_tubuyakis_path, class: "active btn btn-primary" %>
+        	</div>
+        <div class="list-group">
+          <%= render partial: "users/tubuyaki", collection: @tubuyakis %>
+        </div>
+      </div><!-- col-xs-8 right-content -->
+    </div>
+  </div>
+</div>

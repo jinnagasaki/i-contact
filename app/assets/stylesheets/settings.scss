@@ -1,0 +1,45 @@
+// Place all the styles related to the settings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+ #settings-edit 
+
+.settings-content {
+	float: none;
+    margin: 0 auto 35px;
+}
+
+.settings-content form {
+	border: 1px solid #ddd;
+    border-bottom-width: 3px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.settings-content form h2 {
+	margin: 0px;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    font-size: 18px;
+    font-weight: 600;
+}
+.settings-content form .form-body {
+	padding: 25px 30px;
+}
+
+.settings-content form .form-body .control-label {
+	font-weight: 400;
+}
+
+.settings-content form .form-body textarea {
+	height: 100px;
+}
+
+.settings-content form .form-body .btn {
+	width: 100%;
+    margin: 10px 0px;
+}
+
+

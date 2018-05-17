@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+ #application {
+     background-color: #f5f5f5;
+ }
+
+.clear {
+	clear: both;
+}
+
+#users-content {
+   background-color: #fff;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   border-bottom-width: 3px;
+}
+
+/* user */
+
+#user-header .btn-secondary {
+  border-radius: 30px;
+}
+
+/* user fin*/
+
+#tweets-content .left-content .panel {
+  box-shadow: none;
+  border-bottom-width: 3px;
+}
+
+#tweets-content .left-content .panel .user .user-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+}
+
+#tweets-content .left-content .panel .user user-id {
+  color: #aaa;
+}
+
+#tweets-content .left-content .panel .user:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #555;
+}
+
+#tweets-content .left-content .panel .user-activity {
+  text-align: center;
+}
+
+#tweets-content .left-content .panel .user-activity .row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0px;
+}
+
+#tweets-content .left-content .panel .user-activity .row .text {
+  font-size: 12px;
+  color: #777;
+}
+
+#tweets-content .left-content .panel .user-activity .row .num {
+  font-size: 18px;
+}
+
+.new_tweet {
+  margin-top: 20px;
+}
+
+.new_tweet textarea {
+  width: 100% !important;
+}
+
+      
+.new_tweet textarea .btn {
+  width: 100%;
+}
+
+ #tweets-content .right-content .list-group-item:last-child {
+  border-bottom-width: 3px;
+ }
+
+#tweets-content .right-content .list-group-item .user .user-name a {
+  color: #555;
+}
+
+#tweets-content .right-content .list-group-item .user .user-id {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 400;
+}
+
+#tweets-content .right-content .list-group-item .user .time {
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 400; 
+}
+
+#tweets-content .right-content .list-group-item .tweet-content {
+  font-size: 16px;
+}
+
+#tweets-content .right-content .list-group-item .tweet-content .content-footer a {
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
