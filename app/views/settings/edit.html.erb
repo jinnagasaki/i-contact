@@ -20,6 +20,14 @@
     	<%= f.label :bio, "プロフィール(200文字)", class: "control-label" %>
     	<%= f.text_area :bio, class: "form-control" %>
     </div>
+<div class="form-group">
+    <%=f.label :image,"ユーザー画像" %>
+    <%= f.file_field :image %>
+    </div>
+    <div class="form-group">
+    <%=f.label :bgimage,"ユーザー背景画像" %>
+    <%= f.file_field :bgimage %>
+    </div>
     <%= f.submit "送信する", class: "btn btn-success" %>
 	</div>
   <% end %>

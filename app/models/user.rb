@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
-
+   mount_uploader :image, ImageUploader
+   mount_uploader :bgimage, ImageUploader
    has_many :tubuyakis, dependent: :destroy
    has_many :favorites, dependent: :destroy
 

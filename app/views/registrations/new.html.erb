@@ -1,54 +1,67 @@
 <div id="registrations-new">
 <h1 class="text-center text-light" style="font-family: 'Julius Sans One', sans-serif; margin-top: 200px;">i - c o n t a c t</h1>
+<% if notice %>
+    <p class="alert alert-secondary text-center"><%= notice %></p>
+  <% end %>
 <div class="container">
 <div class="row">
-  <div class="col-xs-6 col-lg-6 left-content">
-	<% if notice %>
-	  <p class="alert alert-info"><%= notice %></p>
-	<% end %>
 
-	<p>
-  	  <button class="col-12 mt-5 btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="border-radius: 30px;">
+  <div class="col-xs-6 col-lg-6 left-content">
+      <!-- modal -->
+      <button type="button" class="col-12 mt-5 btn btn-outline-light" data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 30px; font-family: 'Julius Sans One', sans-serif;">
       Registration
       </button>
-	</p>
-	<div class="collapse" id="collapseExample">
-  	  <div class="card card-body">
- 		<%= form_for @user, url: registrations_path, method: :post do |f| %>
-		<h2>会員登録</h2>
-		<!-- エラーメッセージの表示 -->
-		<% @user.errors.each do |attr, message| %>
-		<div class="alert alert-danger"><%= message %></div>
-		<% end %>
-		<div class="form-group">
-			<%= f.label :name, "ユーザーID: @cyllabus_jp", class: "control-label" %>
-			<%= f.text_field :name, class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<%= f.label :email,"メールアドレス: hello@cyllabus.jp", class: "control-label" %>
-			<%= f.text_field :email, class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<%= f.label :password, "パスワード: 6文字以上", class: "control-label" %>
-			<%= f.password_field :password, class: "form-control" %>
-		</div>
-		<div class="form-group">
-			<%= f.label :password_confirmation, "確認用パスワード: 6文字以上", class: "control-label" %>
-			<%= f.password_field :password_confirmation, class: "form-control" %>
-		</div>
-		<%= f.submit "登録する", class: "btn btn-primary" %>
-		<%= link_to "ログインする", new_sessions_path, class: "login float-right" %>
-		<% end %>
-  	  </div>
-  	</div>
   </div>
 	<div class="col-xs-6 col-lg-6 right-content">
-	<%= link_to "log-in", new_sessions_path, class: "col-12 mt-5 btn btn-outline-light", style:"border-radius: 30px;" %>
+	<%= link_to "log-in", new_sessions_path, class: "col-12 mt-5 btn btn-outline-light", style:"border-radius: 30px; font-family: 'Julius Sans One', sans-serif;" %>
 	</div>
-</div>
-</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">新規会員登録</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_for @user, url: registrations_path, method: :post do |f| %>
+                <!-- エラーメッセージの表示 -->
+        <% @user.errors.each do |attr, message| %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% end %>
+        <div class="form-group">
+         <%= f.label :name,"User-ID", class:"text-secondary" %>
+         <%= f.text_field :name, class: "form-control", placeholder:"ユーザー名を入れてください" %>
+        </div>
+        <div class="form-group">
+         <%= f.label :email,"email", class:"text-secondary" %>
+         <%= f.text_field :email, class: "form-control", placeholder:"jin@gmail.com" %>
+        </div>
+        <div class="form-group">
+         <%= f.label :password,"password", class:"text-secondary" %>
+         <%= f.password_field :password, class: "form-control", placeholder:"6文字以上のパスワードを入れてください" %>
+        </div>
+        <div class="form-group">
+         <%= f.label :password_confirmation,"password_confirmation", class:"text-secondary" %>
+         <%= f.password_field :password_confirmation, class: "form-control", placeholder:"パスワード確認" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
+</div>
+</div>
+</div>
 <!--  #registrations-new
    .col-xs-6.left-content
      %h1 #Tsubuyaki

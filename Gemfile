@@ -60,6 +60,7 @@ gem 'record_tag_helper'
 
 # 画像・音楽投稿
 gem 'carrierwave'
+gem 'rmagick'
 
 
 
