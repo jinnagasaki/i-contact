@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'ruby-sox'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -61,8 +63,9 @@ gem 'record_tag_helper'
 # 画像・音楽投稿
 gem 'carrierwave'
 gem 'rmagick'
-
-
+gem 'carrierwave-audio'
+# 検索機能
+gem 'ransack'
 
 
 

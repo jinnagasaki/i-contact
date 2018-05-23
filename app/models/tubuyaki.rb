@@ -1,4 +1,8 @@
 class Tubuyaki < ApplicationRecord
+	default_scope -> { order(created_at: :desc)}
+	mount_uploader :image, ImageUploader
+	mount_uploader :file, AudioFileUploader
+	
 	belongs_to :user
 	has_many :favorites, dependent: :destroy
 

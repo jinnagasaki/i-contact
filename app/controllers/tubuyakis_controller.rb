@@ -76,6 +76,6 @@ def timeline
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tubuyaki_params
-      params.require(:tubuyaki).permit(:content)
+      params.require(:tubuyaki).permit(:content, :image, :file)
     end
 end

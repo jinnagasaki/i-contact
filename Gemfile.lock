@@ -62,6 +62,10 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    carrierwave-audio (1.0.8)
+      carrierwave (>= 0.10.0)
+      ruby-sox (>= 0.0.3)
+      soxi-wrapper (>= 0.0.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.2)
@@ -119,6 +123,8 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    polyamorous (1.3.3)
+      activerecord (>= 3.0)
     popper_js (1.12.9)
     public_suffix (3.0.2)
     puma (3.11.4)
@@ -149,12 +155,19 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (12.3.1)
+    ransack (1.8.8)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     record_tag_helper (1.0.0)
       actionview (~> 5.x)
     rmagick (2.16.0)
+    ruby-sox (0.0.3)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -175,6 +188,7 @@ GEM
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
       oauth2 (~> 1.0, >= 0.8.0)
+    soxi-wrapper (0.0.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -217,14 +231,17 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave
+  carrierwave-audio
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.7)
   rails (~> 5.1.6)
+  ransack
   record_tag_helper
   rmagick
+  ruby-sox
   sass-rails (~> 5.0)
   selenium-webdriver
   sorcery

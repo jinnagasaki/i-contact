@@ -16,19 +16,47 @@
 
 
 
+/* ボタン */
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  height: 45px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #fff;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #fff;
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #000;
+  transform: translateY(-7px);
+}
+
+/* ボタン */
+
  #application {
      background-color: #f5f5f5;
  }
 
 .clear {
 	clear: both;
-}
-
-#users-content {
-   background-color: #fff;
-   border: 1px solid #ddd;
-   border-radius: 6px;
-   border-bottom-width: 3px;
 }
 
 /* user */
@@ -53,97 +81,518 @@
 .img-position-absolute-user {
   position: absolute;
   bottom: -100px;
-  left: 40%;
+  left: 10%;
 }
 
 /* tubuyaki fin*/
 
 
+/* user_tubuyaki */
 
+/*以下、①背景色など*/
 
+.line-bc {
+  padding: 20px 10px;
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
 
-
-#tweets-content .left-content .panel {
-  box-shadow: none;
-  border-bottom-width: 3px;
 }
 
-#tweets-content .left-content .panel .user .user-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: #555;
+/*以下、②左側のコメント*/
+.balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
 }
 
-#tweets-content .left-content .panel .user user-id {
-  color: #aaa;
+.balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 40px;
 }
 
-#tweets-content .left-content .panel .user:hover {
-  text-decoration: none;
-  border-bottom: 1px solid #555;
+.balloon6 .faceicon img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.balloon6 .chatting {
+    width: 100%;
+    text-align: left;
 }
 
-#tweets-content .left-content .panel .user-activity {
+.says {
+    display: inline-block;
+    position: relative; 
+    margin: 0 0 0 70px;
+    padding: 10px;
+    max-width: 80%;
+    min-width: 60%;
+    border-radius: 12px;
+    background: #edf1ee;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -ms-transform: rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+.says p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*
+
+以下、③右側の緑コメント
+
+*/
+
+
+
+.mycomment {
+    display: inline-block;
+    position: relative; 
+    margin: 0 10px 0 0;
+    padding: 8px;
+    max-width: 80%;
+    min-width: 60%;
+    border-radius: 12px;
+    background: white;
+    font-size: 15px;
+}
+
+.mycomment p {
+  text-align: left;
+}
+
+.mycomment :after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid white;
+    -ms-transform: rotate(-35deg);
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+
+/* user_tubuyaki fin */
+
+
+/* i-phone */
+
+
+// PEN-STYLING
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+
+.iphone {
+  box-shadow: inset 0 0 3px 0 rgba(0,0,0,0.2);
+  border: 5px solid #d9dbdc;
+  background: #f8f8f8;
+  padding: 15px;
+  border-radius: 50px;
+  height: 817px;
+  width: 423px;
+  margin: 0px auto;
+  position: relative;
+}
+
+.iphone-top {
+  padding: 5px 110px 40px;
+  position: relative; 
+  .speaker {
+    display: block;
+    width: 70px;
+    height: 6px;
+    margin: 0 auto;
+    border-radius: 6px;
+    background: #292728;
+  }
+  
+  .camera {
+    display: block;
+    margin: 0 auto;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-bottom: 13px;
+    background: #333;
+  }
+  
+  .sensor {
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: left;
+    background: #333;
+    margin-top: -5px;
+    border-radius: 50%;
+  }
+}
+
+.top-bar, .bottom-bar {
+  display: block;
+  width: 423px;
+  height: 15px;
+  border: {
+    left: 5px solid #BBB;
+    right: 5px solid #BBB;
+  }
+  position: absolute;
+  left: -5px;
+}
+.top-bar {
+  top: 65px;
+}
+
+.bottom-bar {
+  bottom: 65px;
+}
+
+.iphone-screen {
+  background: #eee;
+  border: 1px solid #fff;
+  height: 617px;
+  width: 375px;
+  margin: 0 auto;
+  border: 2px solid rgba(0,0,0,0.9);
+  border-radius: 3px;
+  overflow: scroll;
+}
+
+.buttons {
+  .on-off, .up, .down, .sleep {
+    display: block;
+    background: #CCC;
+    position: absolute;
+    border-radius: 2px 0px 0px 2px;
+  }
+  .on-off {
+    height: 40px;
+    width: 3px;
+    top: 100px;
+    left: -8px;
+  }
+  
+  .up, .down, .sleep {
+    height: 60px;
+    width: 5px;
+    left: -10px;
+  }
+  
+  .up {
+    top: 170px;
+  }
+  
+  .down {
+    top: 250px;
+  }
+  
+  .sleep {
+    left: auto;
+    right: -10px;
+    top: 170px;    
+    border-radius: 0px 2px 2px 0px;
+  }
+}
+
+.iphone-bottom {
+  padding: 10px 0 0;
+  .iphone-bottom-submit {
+    display: block;
+    margin: 0 auto;
+    width: 68px;
+    height: 68px;
+    background: #ccc;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #303233 0%, #b5b7b9 50%, #f0f2f2 69%, #303233 100%);
+    position: relative;
+    &:after {
+      content: ""; 
+      display: block;
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+    }
+  }
+}
+
+// END PEN-STYLING
+.iphone-footer-top {
+  width: 100%;
+  height: 40px;
   text-align: center;
 }
 
-#tweets-content .left-content .panel .user-activity .row {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0px;
-}
-
-#tweets-content .left-content .panel .user-activity .row .text {
-  font-size: 12px;
-  color: #777;
-}
-
-#tweets-content .left-content .panel .user-activity .row .num {
-  font-size: 18px;
-}
-
-.new_tweet {
-  margin-top: 20px;
-}
-
-.new_tweet textarea {
-  width: 100% !important;
-}
-
-      
-.new_tweet textarea .btn {
+.iphone-footer {
   width: 100%;
+  height: 50px;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  box-pack: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
 }
 
- #tweets-content .right-content .list-group-item:last-child {
-  border-bottom-width: 3px;
- }
-
-#tweets-content .right-content .list-group-item .user .user-name a {
-  color: #555;
+.i-item {
+    width: 100px;
+    height: 50px;
+    font-size: 32px;
+    line-height: 50px;
+    text-align: center;
 }
 
-#tweets-content .right-content .list-group-item .user .user-id {
-  font-size: 14px;
-  color: #aaa;
-  font-weight: 400;
+.buruburu {
+    display: inline-block;
+    animation: hurueru 1.0s  infinite;
 }
 
-#tweets-content .right-content .list-group-item .user .time {
-  font-size: 12px;
-  color: #aaa;
-  font-weight: 400; 
-}
-
-#tweets-content .right-content .list-group-item .tweet-content {
-  font-size: 16px;
-}
-
-#tweets-content .right-content .list-group-item .tweet-content .content-footer a {
-  font-size: 12px;
-  margin-right: 10px;
+@keyframes hurueru {
+    0% {transform: translate(0px, -10px) rotateZ(0deg)}
+    50% {transform: translate(0px, 10px) rotateZ(0deg)}
+    100% {transform: translate(0px, -10px) rotateZ(0deg)}
 }
 
 
+/* i-phone fin */
+
+
+
+/* topにもどる */
+#page-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+#page-top button {
+    text-decoration: none;
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    padding: 30px 0;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+}
+#page-top button:hover {
+    text-decoration: none;
+}
+/* topにもどるfin */
+
+
+
+/* 下部のメニュー */
+#slide {
+    position: fixed;
+    width: 50px;
+    height: 200px;
+    bottom: 200px;
+    left: 0;
+    color: #666;
+    background: #fff;
+    border-left: solid 1px #999;
+    border-top: solid 1px #999;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+}
+#slide-in {
+    padding: 5px 10px;
+}
+#slide a {
+    text-decoration: none;
+    cursor: pointer;
+}
+#slide h3 {
+    margin-bottom: 10px;
+}
+#slide2 {
+    position: fixed;
+    width: 50px;
+    height: 200px;
+    bottom: 0px;
+    left: 0;
+    color: #666;
+    background: #fff;
+    border-left: solid 1px #999;
+    border-top: solid 1px #999;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+}
+#slide-in2 {
+    padding: 5px 10px;
+}
+#slide2 a {
+    text-decoration: none;
+    cursor: pointer;
+}
+#slide2 h3 {
+    margin-bottom: 10px;
+}
+/* 下部のメニューfin */
+
+
+
+/* 検索 */
+
+.search-wrapper {
+  position: relative;
+  background: black;
+  border-radius: 20px;
+  transform-origin: 100% 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: 250ms ease;
+  
+  &.focused {
+    width: 200px;
+    
+    input {
+      padding: 0 40px 0 13px;
+      width: 100%;
+      transform: scale(1);
+    }
+  }
+  
+  input {
+    background: transparent;
+    border: 0;
+    color: white;
+    outline: none;
+    height: 40px;
+    width: 0;
+    overflow: hidden;
+    font-weight: 100;
+    transform: scale(0);
+    transform-origin: 0 50%;
+    transition: 275ms ease;
+    
+    &::placeholder {
+      color: #cccccc;
+    }
+  }
+  
+  i {
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    top: 50%;
+    right: 13px;
+    transform: translateY(-50%);
+  }
+}
+/* 検索 fin */
+
+
+/* ハート */
+
+/* ハートfin */
+
+
+/* user-show */
+
+.btn_wrap {
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.lazer {
+  display: block;
+  margin: 0 10px;
+  padding: 15px 0;
+  width: 130px;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  transition: .2s ease-in-out;
+}
+
+.lazer:before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: gray;
+  position: absolute;
+  top: -1px;
+  right: 0;
+  transition: .1s ease-in-out .1s;
+}
+
+.lazer:after {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background: gray;
+  position: absolute;
+  bottom: 0;
+  right: -1px;
+  transition: .1s ease-in-out .2s;
+}
+
+.lazer span:before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: gray;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  transition: .1s ease-in-out .3s;
+}
+
+.lazer span:after {
+  content: "";
+  width: 1px;
+  height: 100%;
+  background: gray;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  transition: .1s ease-in-out;
+}
+
+.lazer:hover span:after {
+  height: 0;
+}
+
+.lazer:hover:before {
+  width: 0;
+}
+
+.lazer:hover:after {
+  height: 0;
+}
+
+.lazer:hover span:before {
+  height: 10px;
+}
+/* user-show fin */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";

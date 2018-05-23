@@ -1,47 +1,137 @@
-_panel.html.erb
- <% if logged_in? %>
-<div class="card">
-　<div class="img-position">
-    <%= image_tag current_user.bgimage, style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
-    <%= image_tag current_user.image, style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+<div id="iphone">
+<div class="iphone">
+  <div class="iphone-top">
+    <span class="camera"></span>
+    <span class="sensor"></span>
+    <span class="speaker"></span>
   </div>
-  <div class="card-body mt-5">
-    <%= link_to user_path(current_user), class: "user" do %>
-     <h5 class="card-title"><%= render_user_screen_name current_user %>@<%= current_user.name %></h5>
-    <% end %>
+  <div class="top-bar"></div>
+  <div class="iphone-screen">
+   
+<% if logged_in? %>
+<div class="card mx-auto">
+  <div class="img-position">
 
-    <div class="user-activity">
-              <div class="row">
-                <div class="col-xs-4 tweets-num">
-                  <div class="text">Tweet</div>
-                  <div class="num"><%= link_to current_user.tubuyakis.count, user_path(current_user) %></div>
-                </div>
-                <div class="col-xs-4 follow-num">
-                  <div class="text">Follow</div>
-                  <div class="num">
-                    <%= link_to current_user.inverse_followers.count, follows_user_path(current_user) %>
-                  </div>
-                </div>
-                <div class="col-xs-4 follower-num">
-                  <div class="text">Follower</div>
-                  <div class="num">
-                    <%= link_to current_user.followers.count, followers_user_path(current_user) %>
-                  </div>
-                </div>
-              </div>
-    </div>
-    
-  <% @tubuyaki.errors.full_messages.each do |message| %>
-   <div class="alert alert-danger"><%= message %></div>
+   <% if current_user.bgimage.blank? %>
+    <%= image_tag ("no-image-bg.jpg"),style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
+   <% else %>
+    <%= image_tag current_user.bgimage,style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
+   <% end %>
+
+   <% if current_user.image.blank? %>
+    <%= image_tag ("no-image.jpg"), style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+   <% else %>
+    <%= image_tag current_user.image, style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+   <%end%>
+  </div>
+
+  <div class="card-body mt-5">
+
+    <%= link_to user_path(current_user), class: "text-muted" do %>
+     <h5 class="card-title">
+       <%= render_user_screen_name current_user %>@<%= current_user.name %>
+     </h5>
+    <% end %>
+   
+
+
+   <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Tweet
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.tubuyakis.count, user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Follow
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.inverse_followers.count, follows_user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Follower
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.followers.count, followers_user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+</ul>
+
+<% @tubuyaki.errors.full_messages.each do |message| %>
+   <div class="alert alert-danger mt-3"><%= message %></div>
   <% end %>
-  
+  <h5 class="mt-3">Tweet-form</h5>
   <%= form_for @tubuyaki do |f| %>
     <div class="form-group">
       <%= f.text_area :content, class: "form-control", id:"exampleFormControlTextarea1", rows:"3" %>
     </div>
-      <%= f.submit "つぶやく", class: "btn btn-success" %>
-  <% end %>
 
+    <div class="form-group">
+    　<%=f.label "image", :image, style: "display:none" %>
+      <%= f.file_field :image, id: "lefile", type: "file", style: "display:none" %>
+       <div class="input-group">
+        <input type="text" id="photoCover" class="form-control" placeholder="select file...">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-outline-dark" onclick="$('input[id=lefile]').click();"><i class="far fa-file-image"></i> image-file</button>
+        </span>
+       </div>
+    </div>
+
+    <div class="form-group">
+      <%=f.label "music", :file, style: "display:none"  %>
+      <%= f.file_field :file, id: "music", type: "file", style: "display:none"  %>
+      <div class="input-group">
+       <input type="text" id="musicCover" class="form-control" placeholder="select file...">
+       <span class="input-group-btn">
+         <button type="button" class="btn btn-outline-dark" onclick="$('input[id=music]').click();"><i class="fas fa-music"></i> music-file</button>
+       </span>
+      </div>
+    </div>
+
+      
   </div>
 </div>
- <% end %>
+<div class="iphone-footer-top bg-secondary">
+<h3 class="text-white pt-2">Go Tweet!</h3>
+</div>
+<div class="iphone-footer bg-secondary">
+  <div class="i-item"><i class="buruburu fas fa-chevron-down text-white"></i></div>
+</div>
+
+
+
+
+</div>
+  <div class="buttons">
+    <span class="on-off"></span>
+    <span class="sleep"></span>
+    <span class="up"></span>
+    <span class="down"></span>
+  </div>
+  <div class="bottom-bar"></div>
+  <div class="iphone-bottom">
+    
+    <%= f.submit "Tweet!", class: "btn btn-outline-dark iphone-bottom-submit" %>
+  <% end %>
+  </div>
+</div>
+</div>
+
+
+
+
+<script>
+    $('input[id=lefile]').change(function() {
+    $('#photoCover').val($(this).val().replace("C:\\fakepath\\", ""));
+  });
+</script>
+<script>
+    $('input[id=music]').change(function() {
+    $('#musicCover').val($(this).val().replace("C:\\fakepath\\", ""));
+  });
+</script>
+
+
+
+
+
+<% end %>

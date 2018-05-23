@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517111550) do
+ActiveRecord::Schema.define(version: 20180521103524) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,9 @@ ActiveRecord::Schema.define(version: 20180517111550) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "file"
+    t.string "audio_file"
     t.index ["created_at"], name: "index_tubuyakis_on_created_at"
     t.index ["user_id"], name: "index_tubuyakis_on_user_id"
   end
@@ -51,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180517111550) do
     t.string "bio"
     t.string "image"
     t.string "bgimage"
+    t.text "instagram"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

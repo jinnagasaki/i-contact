@@ -1,22 +1,56 @@
 <div id="tweets-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 my-5">
+      <%if notice %>
+        <div class="alert alert-info"><%= notice %></div>
+      <% end %>
+      <div class="col-lg-5 my-5">
         <%= render partial: "panel" %>
       </div><!-- col-xs-4 left-content -->
 
-      <div class="col-lg-8 my-5">
-      <%if notice %>
-      <div class="alert alert-info"><%= notice %></div>
-      <% end %>
-        	<div class="btn-group mb-3">
-        		<%= link_to "All-Tweets", tubuyakis_path, class: "btn btn-outline-primary" %>
-        		<%= link_to "Like-User-Tweets", timeline_tubuyakis_path, class: "active btn btn-primary" %>
+      <div class="col-lg-7 my-5">
+       <div class="container">
+       <div class="row">
+        
+        	<div class="btn-group mb-3 col-lg-12">
+        		<%= link_to "All-Tweets", tubuyakis_path, class: "btn btn-outline-secondary col-lg-6" %>
+        		<%= link_to "Like-User-Tweets", timeline_tubuyakis_path, class: "active btn btn-secondary col-lg-6" %>
         	</div>
-        <div class="list-group">
-          <%= render partial: "users/tubuyaki", collection: @tubuyakis %>
-        </div>
+          <div class="col-lg-12">
+           <div class="line-bc bg-secondary">
+           <%= render partial: "users/tubuyaki", collection: @tubuyakis %>
+           </div>
+          </div>
+        </div></div>
       </div><!-- col-xs-8 right-content -->
+      <div id="page-top">
+        <button href="#wrap" type="button" class="btn   btn-secondary">
+        <i class="fas fa-chevron-up"></i>
+        </a>
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function() {
+    var topBtn = $('#page-top');    
+    topBtn.hide();
+    //スクロールが100に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+</script>

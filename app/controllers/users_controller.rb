@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @search = User.search(params[:q])
+    @users = @search.result
   end
 
   # GET /users/1
@@ -82,6 +84,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       # params.fetch(:user, {})
-      params.require(:user).permit(:name, :email,:password, :password_confirmation, :image, :bgimage, :remember_digest)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :bgimage, :remember_digest, :instagram)
     end
 end

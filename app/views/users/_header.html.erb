@@ -1,4 +1,3 @@
-<p>users/_header.html.erb</p>
 <div id="user-header">
 	<div class="user-info">
 	    <% if notice %>
@@ -7,28 +6,38 @@
 	    </div>
 	    <% end %>
 	    <div class="img-position">
-		  <%= image_tag @user.bgimage, style:"width: 100%; height:300px; border-bottom: 10px solid #f5f5f5;" %>
-		  <%= image_tag @user.image, style:"border-radius: 50%; width: 200px; height: 200px; border: 10px solid #f5f5f5;", class:"img-position-absolute-user" %>
+
+
+
+
+	    	<% if @user.bgimage.blank? %>
+    <%= image_tag ("no-image-bg.jpg"),style:"width: 100%; height: 300px; border-bottom: 10px solid #f5f5f5;" %>
+    <%= image_tag ("no-image.jpg"), style:"border-radius: 50%; width: 200px; height:200px; border: 10px solid #f5f5f5;", class:"img-position-absolute-user" %>
+   <% else %>
+    <%= image_tag @user.bgimage, style:"width: 100%; height:300px; border-bottom: 10px solid #f5f5f5;" %>
+	<%= image_tag @user.image, style:"border-radius: 50%; width: 200px; height: 200px; border: 10px solid #f5f5f5;", class:"img-position-absolute-user" %>
+   <% end %>
 		</div>
-		<h1 class="text-center" style="margin-top: 100px;">
-			<%= render_user_screen_name(@user) %> @ <%= @user.name %>
-		</h1>
-		<div class="bio">
-			<%= @user.bio %>
-		</div>
-		
 	</div><!-- /user-info -->
 
 <div class="container">
 <div class="row">
- <div class="col-lg-3">
-  <%= link_to user_path(@user), class:"btn btn-outline-secondary col-lg-12" do %>
+<div class="col-lg-4 mb-5">
+</div>
+ <div class="col-lg-2 mb-5">
+  <div class="btn_wrap">
+  <%= link_to user_path(@user), class:"lazer col-lg-12" do %>
+  <span>
 		<div>Tweet</div>
 		<div><%= @user.tubuyakis.count %></div>
+  </span>
   <% end %>
+  </div>
  </div>
- <div class="col-lg-3">
-  <%= link_to follows_user_path(@user), class:"btn btn-outline-secondary col-lg-12" do %>
+ <div class="col-lg-2 mb-5">
+ <div class="btn_wrap">
+  <%= link_to follows_user_path(@user), class:"lazer col-lg-12" do %>
+  <span>
 			<div>
 				Follow
 			</div>
@@ -36,9 +45,13 @@
 				<%= @user.inverse_followers.count %>
 			</div>
 			<% end %>
+  </span>
  </div>
- <div class="col-lg-3">
-    <%= link_to followers_user_path(@user), class:"btn btn-outline-secondary col-lg-12" do %>
+ </div>
+ <div class="col-lg-2 mb-5">
+ <div class="btn_wrap">
+    <%= link_to followers_user_path(@user), class:"lazer col-lg-12" do %>
+    <span>
 			<div>
 				Follower
 			</div>
@@ -46,9 +59,13 @@
 				<%= @user.followers.count %>
 			</div>
 			<% end %>
+	</span>
  </div>
- <div class="col-lg-3">
-    <%= link_to favorites_user_path(@user), class:"btn btn-outline-secondary col-lg-12" do %>
+ </div>
+ <div class="col-lg-2 mb-5">
+ <div class="btn_wrap">
+    <%= link_to favorites_user_path(@user), class:"lazer col-lg-12" do %>
+    <span>
 			<div>
 				Like
 			</div>
@@ -56,7 +73,10 @@
 				<%= @user.favorites.count %>
 			</div>
 			<% end %>
+	</span>
  </div>
+ </div>
+
 
 </div></div>
 
