@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180521103524) do
+ActiveRecord::Schema.define(version: 20180528140226) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -55,6 +55,10 @@ ActiveRecord::Schema.define(version: 20180521103524) do
     t.string "image"
     t.string "bgimage"
     t.text "instagram"
+    t.string "from"
+    t.string "tw"
+    t.string "fb"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

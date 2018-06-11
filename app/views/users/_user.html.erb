@@ -1,13 +1,17 @@
 <div class="col-lg-3 mb-5">
-
-
-<p>users/_user.html.erb</p>
 <%= div_for user do |u|%>
 <div class="card col-lg-12 p-0">
   <div class="img-position">
    <% if u.bgimage.blank? %>
-    <%= image_tag ("no-image-bg.jpg"),style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
-    <%= image_tag ("no-image.jpg"), style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+
+    <div style="background-color: black; width: 100%; height: 200px; text-align: center; border-bottom: 5px solid #f5f5f5;">
+    <h3 class="pt-3 m-0 text-white">No-image</h3>
+    <i class="far fa-image" style="color: white; font-size: 120px; margin-top: 0px;"></i>
+    </div>
+    <div class="img-position-absolute" style="background-color: black; border-radius: 50%; width: 100px; height: 100px; text-align: center; border: 5px solid #f5f5f5;"><i class="fas fa-user" style="color: white; font-size: 60px; margin-top: 12px;"></i>
+    </div>
+
+
    <% else %>
     <%= image_tag u.bgimage,style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
     <%= image_tag u.image, style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
@@ -20,9 +24,9 @@
       <% end %>
     </h5>
     <% if u.followed_by? current_user %>
-    <%= link_to "フォロー解除", user_follows_path(u), class:"btn btn-outline-warning", method: :delete %>
+    <%= link_to "Un-Follow", user_follows_path(u), class:"btn btn-outline-warning", method: :delete %>
   <% else %>
-    <%= link_to "フォロー", user_follows_path(u),class:"btn btn-primary", method: :post %>
+    <%= link_to "Follow", user_follows_path(u),class:"btn btn-primary", method: :post %>
   <% end %>
   </div>
 </div>

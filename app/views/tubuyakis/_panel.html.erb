@@ -1,4 +1,4 @@
-<div id="iphone">
+<div id="iphone-fixed">
 <div class="iphone">
   <div class="iphone-top">
     <span class="camera"></span>
@@ -13,13 +13,16 @@
   <div class="img-position">
 
    <% if current_user.bgimage.blank? %>
-    <%= image_tag ("no-image-bg.jpg"),style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
+    <div style="background-color: black; width: 100%; height: 200px; text-align: center; border-bottom: 5px solid #f5f5f5;">
+    <h3 class="p-0 mt- text-white">No-image</h3>
+    <i class="far fa-image" style="color: white; font-size: 120px; margin-top: 8px;"></i>
+    </div>
    <% else %>
     <%= image_tag current_user.bgimage,style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
    <% end %>
-
    <% if current_user.image.blank? %>
-    <%= image_tag ("no-image.jpg"), style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+   <div class="img-position-absolute" style="background-color: black; border-radius: 50%; width: 100px; height: 100px; text-align: center; border: 5px solid #f5f5f5;"><i class="fas fa-user" style="color: white; font-size: 60px; margin-top: 12px;"></i>
+    </div>
    <% else %>
     <%= image_tag current_user.image, style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
    <%end%>
@@ -59,7 +62,7 @@
 <% @tubuyaki.errors.full_messages.each do |message| %>
    <div class="alert alert-danger mt-3"><%= message %></div>
   <% end %>
-  <h5 class="mt-3">Tweet-form</h5>
+  <h5 class="mt-5 text-center">Tweet-form</h5>
   <%= form_for @tubuyaki do |f| %>
     <div class="form-group">
       <%= f.text_area :content, class: "form-control", id:"exampleFormControlTextarea1", rows:"3" %>
@@ -117,6 +120,100 @@
 </div>
 
 
+<!-- display-none -->
+<div id="iphone-screen-450">
+   
+<% if logged_in? %>
+<div class="card mx-auto">
+  <div class="img-position">
+
+   <% if current_user.bgimage.blank? %>
+    <div style="background-color: black; width: 100%; height: 200px; text-align: center; border-bottom: 5px solid #f5f5f5;">
+    <h3 class="p-0 mt- text-white">No-image</h3>
+    <i class="far fa-image" style="color: white; font-size: 120px; margin-top: 8px;"></i>
+    </div>
+   <% else %>
+    <%= image_tag current_user.bgimage,style:"width: 100%; height: 200px; border-bottom: 5px solid #f5f5f5;" %>
+   <% end %>
+   <% if current_user.image.blank? %>
+   <div class="img-position-absolute" style="background-color: black; border-radius: 50%; width: 100px; height: 100px; text-align: center; border: 5px solid #f5f5f5;"><i class="fas fa-user" style="color: white; font-size: 60px; margin-top: 12px;"></i>
+    </div>
+   <% else %>
+    <%= image_tag current_user.image, style:"border-radius: 50%; width: 100px; height:100px; border: 5px solid #f5f5f5;", class:"img-position-absolute" %>
+   <%end%>
+  </div>
+
+  <div class="card-body mt-5">
+
+    <%= link_to user_path(current_user), class: "text-muted" do %>
+     <h5 class="card-title">
+       <%= render_user_screen_name current_user %>@<%= current_user.name %>
+     </h5>
+    <% end %>
+   
+
+
+   <ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Tweet
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.tubuyakis.count, user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Follow
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.inverse_followers.count, follows_user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Follower
+    <span class="badge badge-secondary badge-pill">
+      <%= link_to current_user.followers.count, followers_user_path(current_user), class:"text-light" %>
+    </span>
+  </li>
+</ul>
+
+<% @tubuyaki.errors.full_messages.each do |message| %>
+   <div class="alert alert-danger mt-3"><%= message %></div>
+  <% end %>
+  <h5 class="mt-5 text-center">Tweet-form</h5>
+  <%= form_for @tubuyaki do |f| %>
+    <div class="form-group">
+      <%= f.text_area :content, class: "form-control", id:"exampleFormControlTextarea1", rows:"3" %>
+    </div>
+
+    <div class="form-group">
+    　<%=f.label "image", :image, style: "display:none" %>
+      <%= f.file_field :image, id: "lefile", type: "file", style: "display:none" %>
+       <div class="input-group">
+        <input type="text" id="photoCover" class="form-control" placeholder="select file...">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-outline-dark" onclick="$('input[id=lefile]').click();"><i class="far fa-file-image"></i> image-file</button>
+        </span>
+       </div>
+    </div>
+
+    <div class="form-group">
+      <%=f.label "music", :file, style: "display:none"  %>
+      <%= f.file_field :file, id: "music", type: "file", style: "display:none"  %>
+      <div class="input-group">
+       <input type="text" id="musicCover" class="form-control" placeholder="select file...">
+       <span class="input-group-btn">
+         <button type="button" class="btn btn-outline-dark" onclick="$('input[id=music]').click();"><i class="fas fa-music"></i> music-file</button>
+       </span>
+      </div>
+    </div>
+
+      <%= f.submit "Tweet!", class: "btn btn-secondary w-100" %>
+  </div>
+</div>
+
+</div>
+<% end %>
+
+<% end %>
+<!-- display-none fin -->
 
 
 <script>
@@ -129,9 +226,4 @@
     $('#musicCover').val($(this).val().replace("C:\\fakepath\\", ""));
   });
 </script>
-
-
-
-
-
 <% end %>

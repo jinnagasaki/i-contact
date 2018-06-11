@@ -207,7 +207,7 @@
   background: #f8f8f8;
   padding: 15px;
   border-radius: 50px;
-  height: 817px;
+  height: 650px;
   width: 423px;
   margin: 0px auto;
   position: relative;
@@ -268,7 +268,7 @@
 .iphone-screen {
   background: #eee;
   border: 1px solid #fff;
-  height: 617px;
+  height: 467px;
   width: 375px;
   margin: 0 auto;
   border: 2px solid rgba(0,0,0,0.9);
@@ -374,6 +374,9 @@
     100% {transform: translate(0px, -10px) rotateZ(0deg)}
 }
 
+#iphone-fixed {
+  position: fixed;
+}
 
 /* i-phone fin */
 
@@ -400,54 +403,6 @@
 }
 /* topにもどるfin */
 
-
-
-/* 下部のメニュー */
-#slide {
-    position: fixed;
-    width: 50px;
-    height: 200px;
-    bottom: 200px;
-    left: 0;
-    color: #666;
-    background: #fff;
-    border-left: solid 1px #999;
-    border-top: solid 1px #999;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
-}
-#slide-in {
-    padding: 5px 10px;
-}
-#slide a {
-    text-decoration: none;
-    cursor: pointer;
-}
-#slide h3 {
-    margin-bottom: 10px;
-}
-#slide2 {
-    position: fixed;
-    width: 50px;
-    height: 200px;
-    bottom: 0px;
-    left: 0;
-    color: #666;
-    background: #fff;
-    border-left: solid 1px #999;
-    border-top: solid 1px #999;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
-}
-#slide-in2 {
-    padding: 5px 10px;
-}
-#slide2 a {
-    text-decoration: none;
-    cursor: pointer;
-}
-#slide2 h3 {
-    margin-bottom: 10px;
-}
-/* 下部のメニューfin */
 
 
 
@@ -505,6 +460,31 @@
 
 /* ハート */
 
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url(http://nelog.jp/wp-content/uploads/2016/03/heart_animation.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+.heart-red {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heart-red-innner {
+  font-size: 30px;
+}
+
+
+.heart:hover {
+  background-position: -2800px 0;
+  -webkit-transition: background 1s steps(28);
+  transition: background 1s steps(28);
+}
 /* ハートfin */
 
 
@@ -593,6 +573,70 @@
   height: 10px;
 }
 /* user-show fin */
+
+#iphone-screen-450 {
+  display: none;
+}
+
+.user-index-card-body-display-none {
+  display: none;
+}
+
+@media (max-width:768px) {
+  #user-card {
+  height: 170px;
+  }
+  .user-index-follow {
+  float: right;
+  }
+  .user-index-card-title {
+  float: left;
+  margin-left: 150px;
+  }
+  .user-index-card-body {
+  display: none;
+  }
+  .user-index-card-body-display-none {
+  display: block;
+  }
+}
+@media (max-width:430px) {
+  #user-card {
+  height: 250px;
+  }
+  .user-index-card-title {
+  float: none;
+  margin-left: 10px; 
+  padding-top: 40px;
+  }
+  .user-index-follow {
+  float: none;
+  margin-left: 10px;
+  }
+
+}
+
+@media (max-width:990px) {
+  #iphone-fixed {
+  position: static;
+}
+}
+
+@media (max-width:450px) {
+  #iphone-screen-450 {
+    display: block;
+  }
+  #iphone-fixed {
+    display: none;
+  }
+}
+
+/* user/show-media */
+@media (max-width:992px) {
+  
+}
+/* user/show-media fin */
+
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";

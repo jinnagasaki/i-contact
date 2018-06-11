@@ -2,6 +2,9 @@
 <% if notice %>
     <p class="alert alert-secondary text-center"><%= notice %></p>
   <% end %>
+  <% @user.errors.each do |attr, message| %>
+        <div class="text-center alert alert-danger"><%= message %></div>
+        <% end %>
 <h1 class="text-center text-light" style="font-family: 'Julius Sans One', sans-serif; margin-top: 200px;">i - c o n t a c t</h1>
 
 <!-- 目 -->
@@ -46,9 +49,6 @@
       <div class="modal-body">
         <%= form_for @user, url: registrations_path, method: :post do |f| %>
                 <!-- エラーメッセージの表示 -->
-        <% @user.errors.each do |attr, message| %>
-        <div class="alert alert-danger"><%= message %></div>
-        <% end %>
         <div class="form-group">
          <%= f.label :name,"User-ID", class:"text-secondary" %>
          <%= f.text_field :name, class: "form-control", placeholder:"ユーザー名を入れてください" %>

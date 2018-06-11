@@ -1,17 +1,31 @@
  <%= div_for tubuyaki do |t|%>
-<p>users/_tubuyaki.html.erb</p>
 <div class="balloon6">
 <% if current_user == t.user %>
-  <p class="text-right text-light font-weight-light mb-0 mt-3">
+  <p class="text-right text-light font-weight-light mb-0 mt-3 mr-3">
 	<%= distance_of_time_in_words_to_now(t.created_at) %>前
   </p>
   <%= link_to user_path(t.user) do %>
-    <h4 class="text-right text-light">My-Tweets</h4>
   <% end %>
   <div class="mycomment">
+  <h5 class="text-right mr-3">My-Tweets</h5>
 	<p class="text-center"><%= t.content %></p>
+  <div style="text-align: center; width: 100%;">
 	<%= image_tag t.image, style:"border-radius: 10%; width: 200px; height: 200px;", class:"mr-3 mb-3", onerror:"this.style.display='none'" %>
-	<%= audio_tag t.file, :controls => true, style:"width: 100%;", onerror:"this.style.display='none'" %>
+  </div>
+  <% if t.file.blank? %>
+<% else %>    
+  <p>
+  <a class="btn btn-secondary w-100" data-toggle="collapse" href="#collapseExample<%= t.id %>" role="button" aria-expanded="false">
+    <i class="fas fa-music"></i>
+  </a>
+
+</p>
+<div class="collapse" id="collapseExample<%= t.id %>">
+  <div class="card card-body p-0">
+    <%= audio_tag t.file, :controls => true, style:"width: 100%;" %>
+  </div>
+</div>
+<% end %>
     <% if t.favorited_by? current_user %>
       <%= link_to tubuyaki_favorites_path(t), method: :delete do %>
       	<i class="fas fa-heart text-danger"></i>
@@ -22,72 +36,70 @@
 	  <% end %>
     <% end %>
   </div>
+
+<!-- user-tweets -->
 <% else %>
-    <p class="text-left text-light font-weight-light mb-0 mt-3">
+    <p class="text-left text-light font-weight-light mb-0 mt-3 ml-2">
 	  <%= distance_of_time_in_words_to_now(t.created_at) %>前
 	</p>
-    <h4 class="text-left">
-	  <%= link_to user_path(t.user), class:"text-light" do %>
-		<%= t.user.screen_name %>@<%= t.user.name %> 's Tweets
-      <% end %>
-
-     <% if t.user.followed_by? current_user %>
-        <%= link_to user_follows_path(t.user), class:"btn btn-outline-warning", method: :delete do %>
-        フォロー解除
-        <% end %>
-      <% else %>
-        <%= link_to "Follow", user_follows_path(t.user), class:"btn btn-primary", method: :post %>
-      <% end %>
-	</h4>
-
     <div class="faceicon">
+    <% if t.user.image.blank? %>
+      <div style="background-color: black; border-radius: 50%; width: 50px; height:50px; text-align: center;"><i class="fas fa-user" style="color: white; font-size: 30px; margin-top: 8px;"></i></div>
+    <% else %>
       <%= image_tag t.user.image, style:"border-radius: 50%; width: 50px; height:50px;"%>
+    <% end %>
     </div>
     <div class="chatting">
       <div class="says">
+        <h5 class="text-left">
+         <%= link_to user_path(t.user), class:"text-dark" do %>
+          <%= t.user.screen_name %>@<%= t.user.name %> 's Tweets
+         <% end %>
+         <% if t.user.followed_by? current_user %>
+          <%= link_to user_follows_path(t.user), class:"btn btn-outline-warning", method: :delete do %>
+           Un-Follow
+          <% end %>
+         <% else %>
+          <%= link_to "Follow", user_follows_path(t.user), class:"btn btn-primary", method: :post %>
+         <% end %>
+        </h5>
 	    <p class="text-center"><%= t.content %></p>
-	    <%= image_tag t.image, style:"border-radius: 10%; width: 200px; height: 200px;", class:"ml-3 mb-3", onerror:"this.style.display='none'" %>
-		<%= audio_tag t.file, :controls => true, style:"width: 100%;", onerror:"this.style.display='none'" %>
+      <div style="text-align: center; width: 100%;">
+	    <%= image_tag t.image, style:"border-radius: 10%; width: 200px; height: 200px;", class:"mb-3", onerror:"this.style.display='none'" %>
+      </div>
 
-    
+<% if t.file.blank? %>
+<% else %>		
+  <p>
+  <a class="btn btn-secondary w-100" data-toggle="collapse" href="#collapseExample<%= t.id %>" role="button" aria-expanded="false">
+    <i class="fas fa-music"></i>
+  </a>
+
+</p>
+<div class="collapse" id="collapseExample<%= t.id %>">
+  <div class="card card-body p-0">
+    <%= audio_tag t.file, :controls => true, style:"width: 100%;", onerror:"this.style.display='none'" %>
+  </div>
+</div>
+<% end %>
+
+
       <% if t.favorited_by? current_user %>
       	<%= link_to tubuyaki_favorites_path(t), class:"mx-3", method: :delete do %>
-      		<i class="fas fa-heart text-danger"></i>
+          <div class="heart-red mx-auto">
+            <i class="heart-red-innner fas fa-heart text-danger"></i>
+          </div>
       	<% end %>
       <% else %>
 	    <%= link_to tubuyaki_favorites_path(t), class:"mx-3", method: :post do %>
-	    	<i class="far fa-heart text-secondary"></i>
+	    	<div class="heart mx-auto"></div>
 	    <% end %>
       <% end %>
+
+
       </div>
     </div>
  </div>
-
-
-
-
-
-
-
-<!-- サウンドクラウド -->
-
-
-<!-- サウンドクラウド -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <% end %><!-- /if current_user.id == t.user.id -->
 <% end %><!-- div_for tubuyaki do |t| -->
